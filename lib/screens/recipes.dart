@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import './widgets/categories.dart';
-import './widgets/block_heading.dart';
 import './widgets/filters.dart';
 import './widgets/recipe_scroll_cards.dart';
 import './widgets/recipe_recommendation.dart';
 
+import '../widgets/block_heading.dart';
 import '../widgets/search.dart';
 import '../widgets/bottom_naviation.dart';
 

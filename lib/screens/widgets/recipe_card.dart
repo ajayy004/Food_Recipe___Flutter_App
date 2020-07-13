@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../screens/reccipe_detail.dart';
+
 class RecipeCard extends StatelessWidget {
   final int id;
   final int likeCount;
@@ -23,88 +25,104 @@ class RecipeCard extends StatelessWidget {
       width: 300,
       height: 280,
       margin: EdgeInsets.only(left: 20),
-      decoration: BoxDecoration(
+      child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
-        image: DecorationImage(
-          image: AssetImage(imageUrl),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Stack(
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(0, 0, 0, .2),
-              borderRadius: BorderRadius.circular(20),
-            ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            // crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  FlatButton(
-                    onPressed: () {
-                      print('recipe favorite $id');
-                    },
-                    child: Row(
-                      children: <Widget>[
-                        Icon(
-                          isFavouritePress
-                              ? Icons.favorite
-                              : Icons.favorite_border,
-                          color: isFavouritePress
-                              ? Color(0xFF50dbbc)
-                              : Colors.white,
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          '$likeCount',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  FlatButton(
-                    onPressed: null,
-                    child: Row(
-                      children: <Widget>[
-                        Icon(
-                          Icons.timer,
-                          color: Colors.white,
-                        ),
-                        SizedBox(width: 5),
-                        Text(
-                          '$time min',
-                          style: TextStyle(
-                            color: Colors.white,
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+        child: Stack(
+          children: <Widget>[
+            Hero(
+              tag: id,
+              child: Image.asset(
+                imageUrl,
+                fit: BoxFit.cover,
+                height: double.infinity,
               ),
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text(
-                  title,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 32,
-                    color: Colors.white,
+            ),
+            Container(
+              decoration: BoxDecoration(
+                color: Color.fromRGBO(0, 0, 0, .2),
+                borderRadius: BorderRadius.circular(20),
+              ),
+            ),
+            Stack(
+              children: <Widget>[
+                Material(
+                  color: Colors.transparent,
+                  child: InkWell(
+                    onTap: () {
+                      Navigator.of(context).pushNamed(
+                        RecipeDetail.routeName,
+                        arguments: id,
+                      );
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.all(20),
+                      child: Align(
+                        alignment: Alignment.bottomLeft,
+                        child: Text(
+                          title,
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 32,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    FlatButton(
+                      onPressed: () {
+                        print('recipe favorite $id');
+                      },
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            isFavouritePress
+                                ? Icons.favorite
+                                : Icons.favorite_border,
+                            color: isFavouritePress
+                                ? Color(0xFF50dbbc)
+                                : Colors.white,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            '$likeCount',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                    FlatButton(
+                      onPressed: null,
+                      child: Row(
+                        children: <Widget>[
+                          Icon(
+                            Icons.timer,
+                            color: Colors.white,
+                          ),
+                          SizedBox(width: 5),
+                          Text(
+                            '$time min',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

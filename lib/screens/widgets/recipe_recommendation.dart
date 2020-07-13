@@ -1,3 +1,4 @@
+import 'package:Food_Recipe___Flutter_App/screens/reccipe_detail.dart';
 import 'package:flutter/material.dart';
 
 import '../../models/recipes.dart';
@@ -13,33 +14,39 @@ class RecipeRecommendation extends StatelessWidget {
       height: 130,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: recipes.length,
+        itemCount: Recipes().recipes.length,
         itemBuilder: (context, index) => Container(
           width: 100,
           margin: EdgeInsets.only(left: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              ClipRRect(
-                borderRadius: BorderRadius.circular(10),
-                child: Image.asset(
-                  recipes[index].imageUrl,
-                  height: 100,
-                  width: 100,
-                  fit: BoxFit.cover,
-                ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(RecipeDetail.routeName,
+                    arguments: Recipes().recipes[index].id);
+              },
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  Image.asset(
+                    Recipes().recipes[index].imageUrl,
+                    height: 100,
+                    width: 100,
+                    fit: BoxFit.cover,
+                  ),
+                  SizedBox(height: 5),
+                  Text(
+                    Recipes().recipes[index].title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Colors.grey[800],
+                    ),
+                  )
+                ],
               ),
-              SizedBox(height: 5),
-              Text(
-                recipes[index].title,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[800],
-                ),
-              )
-            ],
+            ),
           ),
         ),
       ),

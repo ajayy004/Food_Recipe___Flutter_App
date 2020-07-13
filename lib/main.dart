@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import './utils/constants.dart';
 import './screens/recipes.dart';
+import './screens/reccipe_detail.dart';
 
 void main() => runApp(MyApp());
 
@@ -17,6 +18,9 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: Recipes(),
+      routes: {
+        RecipeDetail.routeName: (ctx) => RecipeDetail(),
+      },
     );
   }
 }
