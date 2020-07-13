@@ -41,7 +41,7 @@ class RecipeDetail extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Container(
-                      width: deviceSize.width * .7,
+                      width: deviceSize.width * .65,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -95,12 +95,12 @@ class RecipeDetail extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Icon(
-                                    Icons.timer,
+                                    Icons.restaurant,
                                     color: Color(0xFF43d9b8),
                                   ),
                                   SizedBox(width: 5),
                                   Text(
-                                    "${recipe.time} Serving",
+                                    "${recipe.serving} Serving",
                                     style: TextStyle(
                                       color: Color(0xFF535756),
                                     ),
@@ -350,6 +350,7 @@ class RecipeDetail extends StatelessWidget {
                       .map(
                         (step) => Column(
                           children: <Widget>[
+                            Divider(),
                             ListTile(
                               leading: Icon(
                                 Icons.radio_button_unchecked,
@@ -362,7 +363,6 @@ class RecipeDetail extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Divider()
                           ],
                         ),
                       )

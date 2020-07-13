@@ -5,6 +5,7 @@ class Recipe {
   int time;
   String imageUrl;
   List<String> categories;
+  int serving;
   int calories;
   int protien;
   int fat;
@@ -20,6 +21,7 @@ class Recipe {
     this.time,
     this.imageUrl,
     this.categories,
+    this.serving,
     this.calories,
     this.carbs,
     this.fat,
@@ -39,6 +41,7 @@ class Recipes {
       time: 15,
       imageUrl: 'assets/images/food_1.jpg',
       categories: ['Breakfast', 'Quick'],
+      serving: 1,
       calories: 240,
       protien: 10,
       fat: 8,
@@ -60,6 +63,7 @@ class Recipes {
       time: 30,
       imageUrl: 'assets/images/food_2.jpg',
       categories: ['Breakfast', 'Quick'],
+      serving: 2,
       calories: 240,
       protien: 10,
       fat: 8,
@@ -81,6 +85,7 @@ class Recipes {
       time: 5,
       imageUrl: 'assets/images/food_3.jpg',
       categories: ['Breakfast', 'Quick'],
+      serving: 2,
       calories: 240,
       protien: 10,
       fat: 8,
