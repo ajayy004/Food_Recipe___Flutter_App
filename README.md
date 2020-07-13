@@ -1,1 +1,6 @@
-# Food_Recipe___Flutter_App
+# Food Recipe
+
+
+**UI Credit**
+
+- Design by: [Jeff Lloyd](https://dribbble.com/jeff_lloyd)
