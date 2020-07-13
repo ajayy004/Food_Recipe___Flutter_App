@@ -3,4 +3,4 @@
 
 **UI Credit**
 
-- Design by: Jeff Lloyd [link](https://dribbble.com/jeff_lloyd)
+- Design by: [Jeff Lloyd](https://dribbble.com/jeff_lloyd)
