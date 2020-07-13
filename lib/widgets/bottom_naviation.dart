@@ -8,7 +8,7 @@ class BottomNaviation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 80,
+      height: 50,
       decoration: BoxDecoration(
         border: Border(
           top: BorderSide(
@@ -29,12 +29,13 @@ class BottomNaviation extends StatelessWidget {
                 children: <Widget>[
                   Icon(
                     Icons.person_outline,
-                    size: 32,
+                    size: 24,
                     color: Color(0xFFAEAEAE),
                   ),
                   Text(
                     'Settings',
                     style: TextStyle(
+                      fontSize: 10,
                       color: Color(0xFFAEAEAE),
                     ),
                   ),
@@ -50,12 +51,13 @@ class BottomNaviation extends StatelessWidget {
                 children: <Widget>[
                   Icon(
                     Icons.list,
-                    size: 32,
+                    size: 24,
                     color: Color(0xFF535353),
                   ),
                   Text(
                     'Recipes',
                     style: TextStyle(
+                      fontSize: 10,
                       color: Color(0xFF535353),
                     ),
                   ),
@@ -71,12 +73,13 @@ class BottomNaviation extends StatelessWidget {
                 children: <Widget>[
                   Icon(
                     Icons.favorite_border,
-                    size: 32,
+                    size: 24,
                     color: Color(0xFFAEAEAE),
                   ),
                   Text(
                     'Favorite',
                     style: TextStyle(
+                      fontSize: 10,
                       color: Color(0xFFAEAEAE),
                     ),
                   ),

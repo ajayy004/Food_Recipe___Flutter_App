@@ -17,7 +17,7 @@ class BlockHeading extends StatelessWidget {
     return Container(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
           Text(
             title,
@@ -28,8 +28,8 @@ class BlockHeading extends StatelessWidget {
                 ),
           ),
           if (isViewAllVisiable)
-            FlatButton(
-              onPressed: () {},
+            InkWell(
+              onTap: () {},
               child: Text(
                 'View all',
                 textScaleFactor: fontScale,

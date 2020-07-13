@@ -30,13 +30,13 @@ class Recipes extends StatelessWidget {
                 size: 40,
               ),
             ),
-            SizedBox(height: 10),
+            SizedBox(height: 5),
             Categories(),
             Expanded(
               child: SingleChildScrollView(
                 child: Column(
                   children: <Widget>[
-                    SizedBox(height: 20),
+                    SizedBox(height: 10),
                     Padding(
                       padding: EdgeInsets.only(left: 20, right: 10),
                       child: BlockHeading(
@@ -45,7 +45,11 @@ class Recipes extends StatelessWidget {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.only(left: 20, right: 10),
+                      padding: EdgeInsets.only(
+                        left: 20,
+                        right: 10,
+                        top: 5,
+                      ),
                       child: Filters(),
                     ),
                     SizedBox(height: 10),

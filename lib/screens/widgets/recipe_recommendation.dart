@@ -28,11 +28,14 @@ class RecipeRecommendation extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                  Image.asset(
-                    Recipes().recipes[index].imageUrl,
-                    height: 100,
-                    width: 100,
-                    fit: BoxFit.cover,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      Recipes().recipes[index].imageUrl,
+                      height: 100,
+                      width: 100,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   SizedBox(height: 5),
                   Text(

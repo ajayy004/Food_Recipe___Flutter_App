@@ -23,7 +23,7 @@ class Filters extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 40,
+      height: 30,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: _filters.length,

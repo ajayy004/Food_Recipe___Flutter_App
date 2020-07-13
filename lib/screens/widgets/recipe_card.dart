@@ -24,7 +24,8 @@ class RecipeCard extends StatelessWidget {
     return Container(
       width: 300,
       height: 280,
-      margin: EdgeInsets.only(left: 20),
+      margin: EdgeInsets.only(right: 20),
+      padding: EdgeInsets.only(left: 20),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20),
         child: Stack(

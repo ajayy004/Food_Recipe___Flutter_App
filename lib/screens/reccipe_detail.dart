@@ -352,7 +352,7 @@ class RecipeDetail extends StatelessWidget {
                           children: <Widget>[
                             ListTile(
                               leading: Icon(
-                                Icons.radio_button_checked,
+                                Icons.radio_button_unchecked,
                                 color: Color(0xFF50dbbc),
                               ),
                               title: Text(
