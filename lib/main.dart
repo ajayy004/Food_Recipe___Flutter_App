@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import './utils/constants.dart';
+import './screens/recipes.dart';
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -8,12 +11,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Food Recipe',
-      theme: ThemeData.light(),
-      home: Scaffold(
-        body: Center(
-          child: Text('Home Screen'),
-        ),
+      theme: ThemeData(
+        primaryColor: primaryColor,
+        accentColor: accentColor,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: Recipes(),
     );
   }
 }
