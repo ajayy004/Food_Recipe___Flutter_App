@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
-import './widgets/search.dart';
 import './widgets/categories.dart';
 import './widgets/block_heading.dart';
 import './widgets/filters.dart';
 import './widgets/recipe_scroll_cards.dart';
 import './widgets/recipe_recommendation.dart';
+
+import '../widgets/search.dart';
+import '../widgets/bottom_naviation.dart';
 
 class Recipes extends StatelessWidget {
   const Recipes({
@@ -15,6 +17,7 @@ class Recipes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      bottomNavigationBar: BottomNaviation(),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +59,6 @@ class Recipes extends StatelessWidget {
                       ),
                     ),
                     SizedBox(height: 5),
-                    RecipeRecommendation(),
                     RecipeRecommendation(),
                   ],
                 ),

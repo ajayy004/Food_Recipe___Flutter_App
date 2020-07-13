@@ -40,13 +40,15 @@ class RecipeCard extends StatelessWidget {
           ),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            // crossAxisAlignment: CrossAxisAlignment.end,
             children: <Widget>[
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      print('recipe favorite $id');
+                    },
                     child: Row(
                       children: <Widget>[
                         Icon(
@@ -99,7 +101,7 @@ class RecipeCard extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ],
