@@ -32,16 +32,20 @@ class RecipeCard extends StatelessWidget {
           children: <Widget>[
             Hero(
               tag: id,
-              child: Image.asset(
-                imageUrl,
-                fit: BoxFit.cover,
-                height: double.infinity,
-              ),
-            ),
-            Container(
-              decoration: BoxDecoration(
-                color: Color.fromRGBO(0, 0, 0, .2),
-                borderRadius: BorderRadius.circular(20),
+              child: Stack(
+                children: <Widget>[
+                  Image.asset(
+                    imageUrl,
+                    fit: BoxFit.cover,
+                    height: double.infinity,
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Color.fromRGBO(0, 0, 0, .2),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  )
+                ],
               ),
             ),
             Stack(

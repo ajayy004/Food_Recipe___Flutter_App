@@ -1,6 +1,6 @@
-import 'package:Food_Recipe___Flutter_App/screens/reccipe_detail.dart';
 import 'package:flutter/material.dart';
 
+import '../reccipe_detail.dart';
 import '../../models/recipes.dart';
 
 class RecipeRecommendation extends StatelessWidget {

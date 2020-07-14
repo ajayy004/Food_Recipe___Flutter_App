@@ -17,20 +17,13 @@ class RecipeDetail extends StatelessWidget {
       bottomNavigationBar: BottomNaviation(),
       body: CustomScrollView(
         slivers: <Widget>[
-          SliverAppBar(
-            iconTheme: IconThemeData(color: Colors.white),
+          SliverPersistentHeader(
             pinned: true,
-            floating: true,
-            expandedHeight: 260,
-            flexibleSpace: FlexibleSpaceBar(
-              titlePadding: EdgeInsets.only(left: 100),
-              background: Hero(
-                tag: recipe.id,
-                child: Image.asset(
-                  recipe.imageUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
+            delegate: MySliver(
+              expandedHeight: 220,
+              imageUrl: recipe.imageUrl,
+              title: recipe.title,
+              id: recipe.id,
             ),
           ),
           SliverList(
@@ -375,4 +368,89 @@ class RecipeDetail extends StatelessWidget {
       ),
     );
   }
+}
+
+class MySliver extends SliverPersistentHeaderDelegate {
+  final double expandedHeight;
+  final String imageUrl;
+  final String title;
+  final int id;
+
+  MySliver({
+    @required this.expandedHeight,
+    this.title,
+    this.imageUrl,
+    this.id,
+  });
+
+  @override
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
+    return Stack(
+      fit: StackFit.expand,
+      overflow: Overflow.visible,
+      children: <Widget>[
+        Container(
+          color: Theme.of(context).primaryColor,
+          padding: EdgeInsets.only(
+            top: 42,
+            left: 40,
+            right: 20,
+          ),
+          child: Text(
+            title,
+            overflow: TextOverflow.ellipsis,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 20,
+            ),
+          ),
+        ),
+        Hero(
+          tag: id,
+          child: Opacity(
+            opacity: (1 - shrinkOffset / expandedHeight),
+            child: Stack(
+              children: [
+                Image.asset(
+                  imageUrl,
+                  height: expandedHeight,
+                  width: double.infinity,
+                  fit: BoxFit.cover,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(0, 0, 0, .2),
+                  ),
+                )
+              ],
+            ),
+          ),
+        ),
+        Positioned(
+          left: 0,
+          top: 30,
+          child: IconButton(
+            onPressed: () => Navigator.of(context).pop(),
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: Colors.white,
+            ),
+          ),
+        )
+      ],
+    );
+  }
+
+  @override
+  double get maxExtent => expandedHeight;
+
+  @override
+  double get minExtent => kToolbarHeight + 20;
+
+  @override
+  bool shouldRebuild(SliverPersistentHeaderDelegate oldDelegate) => true;
 }
