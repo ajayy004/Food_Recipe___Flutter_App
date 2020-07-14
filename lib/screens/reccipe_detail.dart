@@ -9,7 +9,6 @@ class RecipeDetail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final recipeId = ModalRoute.of(context).settings.arguments as int;
-    print(recipeId);
     final recipe = Recipes().findById(recipeId);
     final deviceSize = MediaQuery.of(context).size;
 
